@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1] — 2026-09-28
+
+### Changed
+- Recorded successful public-route, social image, setup-share and GitHub CI verification.
+- Marked public release complete and explicitly excluded local environment files from deployment uploads.
+
 ## [1.1.0] — 2026-09-28
 
 ### Added

@@ -3,7 +3,7 @@
 ## Phase 1 — Public beta
 - [🟢 Complete] Preserve original source; package and test hosted/offline builder.
 - [🟢 Complete] PRESSWRKS. branding, responsive form, share setup and feedback flow.
-- [🟡 In Progress] Public GitHub/Vercel release and final production verification.
+- [🟢 Complete] Public GitHub/Vercel release and final production verification.
 
 ## Phase 2 — Learn from real jobs
 - [🔴 Not Started] Verify native Illustrator execution, `.ait` reopening and PDF separations across supported versions.

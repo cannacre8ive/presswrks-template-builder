@@ -1,3 +1,4 @@
 .git
 source
 node_modules
+.env*
