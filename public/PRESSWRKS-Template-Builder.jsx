@@ -1,5 +1,5 @@
 #target illustrator
-/* PRESSWRKS Template Builder v1. ES3-compatible Illustrator engine. */
+/* PRESSWRK Template Builder v1. ES3-compatible Illustrator engine. */
 var PW = (function () {
   var names = ['CUT','PERF','GUIDES','GAUGES','VARIABLE','COMPLIANCE','GLOSS','ART','WHITE','SUBSTRATE-SIM'];
   var products = ['Pre-roll tube wrap','Concentrate jar lid','Concentrate jar sidewall','Deli-style flower lid','Eighth pre-pack jar wrap','Other flat label'];
@@ -83,7 +83,7 @@ var PW = (function () {
   return {products:products,presets:presets,config:config,validate:validate,build:build,save:save,filename:filename};
 }());
 (function(){
- var win=new Window('dialog','PRESSWRKS - Illustrator Template Builder');win.orientation='column';win.alignChildren='fill';
+ var win=new Window('dialog','PRESSWRK - Illustrator Template Builder');win.orientation='column';win.alignChildren='fill';
  win.add('statictext',undefined,'Five source templates + custom sizes. All dimensions are inches.');
  var choices=[];for(var i=0;i<PW.presets.length;i++)choices.push(('0'+(i+1)).slice(-2)+'  '+PW.products[i]);choices.push('06  Custom template');
  var pick=win.add('dropdownlist',undefined,choices);pick.selection=0;

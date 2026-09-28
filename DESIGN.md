@@ -1,6 +1,6 @@
 # Design system
 
-Brand spelling is exactly **PRESSWRKS.** Red period retained. Wordmark uses Arial Black, Helvetica Neue, Arial, sans-serif, weight 950, 30px desktop / 26px mobile, -1.8px tracking. No remotely fetched font.
+Brand spelling is exactly **PRESSWRK.** Red period retained. Wordmark uses Arial Black, Helvetica Neue, Arial, sans-serif, weight 950, 30px desktop / 26px mobile, -1.8px tracking. No remotely fetched font.
 
 Palette: paper `#faf9f6`, ink `#171719`, red `#cf2c39`, muted `#696866`, borders `#d9d6d0`, preview ground `#f4f2ed`, safe guides `#39776b`, error `#ad1426`.
 

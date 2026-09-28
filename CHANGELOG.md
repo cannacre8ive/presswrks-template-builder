@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2] — 2026-09-28
+
+### Changed
+- Corrected the displayed brand to PRESSWRK. across the wordmark, metadata, generated-script messaging and feedback forms. Retained the red period and existing public URLs/download filenames.
+- Refreshed live screenshots and social preview; documented saved, pushed and live release states.
+
+
 ## [1.1.1] — 2026-09-28
 
 ### Changed

@@ -4,7 +4,7 @@ title: "[Bug]: "
 body:
   - type: markdown
     attributes:
-      value: "Thanks for trying PRESSWRKS. This report is public. Do not include client artwork, credentials, or confidential details."
+      value: "Thanks for trying PRESSWRK. This report is public. Do not include client artwork, credentials, or confidential details."
   - type: textarea
     id: problem
     attributes:

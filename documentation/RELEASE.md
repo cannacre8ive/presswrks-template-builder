@@ -26,3 +26,7 @@ No claim of verified Illustrator runtime, native dialog behavior, `.ait` reopeni
 - Feedback link reaches GitHub sign-in with the correct issue-chooser return URL. No report submitted; signed-in issue-form submission is not tested.
 - Home library now opens the live tool and provides repository/offline links. A local OPEN-PRESSWRKS.webloc shortcut is also supplied outside this repository.
 
+
+## Branding correction — 2026-09-28
+
+Displayed brand corrected to PRESSWRK. with the red period retained. Existing repository/deployment URLs and download filenames stay compatible. Browser title, wordmark and accessibility name verified live. The existing 24 checks pass; production screenshots refreshed. This correction is grouped in one Git commit, pushed to main for automatic deployment.

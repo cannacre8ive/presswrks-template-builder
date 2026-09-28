@@ -1,4 +1,4 @@
-/* PRESSWRKS Template Builder v1. ES3-compatible Illustrator engine. */
+/* PRESSWRK Template Builder v1. ES3-compatible Illustrator engine. */
 var PW = (function () {
   var names = ['CUT','PERF','GUIDES','GAUGES','VARIABLE','COMPLIANCE','GLOSS','ART','WHITE','SUBSTRATE-SIM'];
   var products = ['Pre-roll tube wrap','Concentrate jar lid','Concentrate jar sidewall','Deli-style flower lid','Eighth pre-pack jar wrap','Other flat label'];

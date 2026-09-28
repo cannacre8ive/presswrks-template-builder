@@ -1,6 +1,6 @@
-![PRESSWRKS. template builder](documentation/assets/desktop.png)
+![PRESSWRK. template builder](documentation/assets/desktop.png)
 
-# PRESSWRKS. — Packaging Template Builder
+# PRESSWRK. — Packaging Template Builder
 
 ## 🚀 Live Demo
 
@@ -51,14 +51,16 @@ All are editable. Generated documents target CMYK, 300 ppi, ten named layers, Cu
 
 ## Recent updates
 
-- 2026-09-28: Public beta release, stronger PRESSWRKS. wordmark with red period, setup-sharing links, local recall, reset, keyboard focus and feedback entry.
+- 2026-09-28: Brand corrected to **PRESSWRK.**; same public link.
+
+- 2026-09-28: Public beta release, stronger PRESSWRK. wordmark with red period, setup-sharing links, local recall, reset, keyboard focus and feedback entry.
 - Single-source generator, 24 automated geometry/sharing checks, repository documentation and real UI social preview.
 
 See [CHANGELOG.md](CHANGELOG.md), [TESTING.md](TESTING.md), and [ROADMAP.md](ROADMAP.md). The original browser builder is preserved with a checksum under `source/`. Original source notes are provenance, not release instructions.
 
 ## Sharing
 
-Suggested description: “PRESSWRKS. turns packaging dimensions into editable Illustrator templates. Try a preset or your own size, preview the geometry, and send feedback.”
+Suggested description: “PRESSWRK. turns packaging dimensions into editable Illustrator templates. Try a preset or your own size, preview the geometry, and send feedback.”
 
 Production: https://presswrks-template-builder.vercel.app/  
 Repository: https://github.com/cannacre8ive/presswrks-template-builder
