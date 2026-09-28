@@ -1,0 +1,23 @@
+name: Report a problem
+description: Help us reproduce a problem with the builder.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for trying PRESSWRKS. This report is public. Do not include client artwork, credentials, or confidential details."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What were you trying to do, and what happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps or a non-confidential setup link
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, device, and Illustrator version if relevant

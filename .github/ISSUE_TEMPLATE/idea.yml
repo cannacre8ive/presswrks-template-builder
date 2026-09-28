@@ -1,0 +1,16 @@
+name: Suggest an improvement
+description: Tell us about a repeated task this could make easier.
+title: "[Idea]: "
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What job are you doing and where do you get stuck?
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What would help, and how often would you use it?
+    validations:
+      required: true

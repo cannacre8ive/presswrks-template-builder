@@ -1,0 +1,5 @@
+{
+  "original": "original-builder.html",
+  "sha256": "479d7255bb28ebc70eb5af29ca51692794bb378a23de0316d7cd849da7f607b3",
+  "note": "Original browser builder preserved byte-for-byte. Live build is generated from src."
+}

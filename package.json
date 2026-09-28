@@ -1,0 +1,15 @@
+{
+  "name": "presswrks-template-builder",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm test && npm run build",
+    "dev": "npm run build && python3 -m http.server 8872 --bind 127.0.0.1 --directory dist"
+  }
+}

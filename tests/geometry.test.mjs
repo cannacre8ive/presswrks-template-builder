@@ -1,0 +1,12 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import vm from 'node:vm';
+const ctx={};vm.createContext(ctx);vm.runInContext(readFileSync('src/engine.js','utf8')+'\n'+readFileSync('src/sharing.js','utf8'),ctx);const {PW,PWShare}=ctx;
+for(let i=0;i<5;i++)test('Preset '+i+' has valid geometry',()=>assert.equal(PW.validate(PW.config(i)),''));
+for(const d of [1,1.25,2])test('Circular lid '+d+' inches',()=>{const c=PW.config(1);c.w=c.h=d;assert.equal(PW.validate(c),'');assert.match(PW.filename(c),new RegExp('D'+d));});
+for(const [label,patch] of [['empty dimension',{w:NaN}],['negative dimension',{w:-1}],['zero live area',{safe:.5}],['too little bleed',{bleed:.01}],['unequal circle',{h:2}],['oversize radius',{radius:1}],['empty name',{name:' '}],['symbol cannot fit',{w:.5,h:.5}],['infinite dimension',{w:Infinity}]])test('Reject '+label,()=>assert.ok(PW.validate({...PW.config(1),...patch})));
+test('Reject short wrap',()=>assert.ok(PW.validate({...PW.config(0),w:2})));
+test('URL setup round trip preserves settings',()=>{const c=PW.config(1);c.w=c.h=1.25;c.measured=true;c.name='Lid & sample';assert.equal(JSON.stringify(PWShare.parse(PWShare.encode(c))),JSON.stringify(PWShare.validate(c)));});
+test('Malformed and untrusted link values rejected',()=>{for(const hash of ['#setup=%','\x23setup='+encodeURIComponent('{"version":2}'),'#setup='+encodeURIComponent(JSON.stringify({version:1,config:{...PW.config(0),stock:'<script>'}}))])assert.throws(()=>PWShare.parse(hash));});
+test('Oversize setup links rejected',()=>assert.throws(()=>PWShare.parse('#setup='+'a'.repeat(5001))));
+test('Unknown anchor does not change configuration',()=>assert.equal(PWShare.parse('#how'),null));
+test('Extra imported fields cannot execute or pass through',()=>{const c=PWShare.validate({...PW.config(1),evil:'ignored'});assert.equal(c.evil,undefined);});
+test('Script payload handles quotes and names safely',()=>{const c=PW.config(1);c.name='Test "quoted" \\ name';const literal=JSON.stringify(c);assert.equal(vm.runInNewContext('('+literal+')').name,c.name);assert.ok(!PW.filename(c).includes('"'));});
