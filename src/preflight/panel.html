@@ -1,0 +1,32 @@
+<section class="artwork-section" id="artwork" aria-labelledby="artwork-title">
+  <div class="artwork-heading"><div><span class="release">04 / Check before you print</span><h2 id="artwork-title">Is my artwork ready<span>.</span></h2></div><p>Drop in your artwork. See what fits, what needs fixing, and what still needs a printer’s eye.</p></div>
+  <div class="artwork-grid"><div class="artwork-upload">
+    <p class="target-label">CHECKING AGAINST YOUR SELECTED TEMPLATE</p><p id="artwork-target" class="artwork-target"></p>
+    <div id="artwork-drop" class="artwork-drop"><span class="upload-mark" aria-hidden="true">↥</span><b>Drop your artwork here</b><span>or choose a file from your device</span><label class="file-button" for="artwork-file">Choose artwork<input id="artwork-file" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></label><small>PDF, JPG or PNG · up to 25 MB<br>PDF: 10 pages · images: 20 megapixels</small></div>
+    <p class="note">Checks happen on your device. Your artwork is only sent when you explicitly submit a project. No Illustrator file or template layers required.</p>
+    <label for="artwork-example">TRY AN EXAMPLE</label><select id="artwork-example"><option value="generated">RGB label at your selected size</option><option value="cmyk-300.jpg">CMYK image · 2 inch label</option><option value="vector.pdf">Vector PDF · 2 inch label</option><option value="low-image.pdf">Low-resolution PDF · 2 inch label</option></select><button id="artwork-demo" type="button" class="secondary">Try a sample label</button>
+    <div id="artwork-preview" class="artwork-image" hidden></div>
+  </div><div class="artwork-results">
+    <p id="artwork-status" role="status" aria-live="polite">Choose your label size above, then add your artwork.</p>
+    <div id="artwork-summary" hidden><div class="result-heading"><h3 id="artwork-verdict" tabindex="-1"></h3><button id="artwork-clear" class="text-button" type="button">Remove file</button></div><p id="artwork-filename" class="note"></p><ul id="artwork-checks" class="check-results"></ul><p class="note">This is a first check, not a production approval. It does not certify legal copy, cut paths, white ink, fonts, overprint or physical container fit.</p><button id="artwork-report" class="secondary" type="button">Download check report ↓</button><a class="continue-link" href="#project-intake">Add project details →</a></div>
+    <div id="artwork-empty" class="artwork-empty"><div><b>01</b><span>Right size & proportions</span></div><div><b>02</b><span>300 PPI at the printed size</span></div><div><b>03</b><span>Color mode & next steps</span></div><p>We’ll explain what to change. A “300 DPI” tag alone does not tell you whether an image has enough detail.</p></div>
+  </div></div>
+</section>
+<section id="project-intake" class="intake-section" aria-labelledby="intake-title">
+  <div class="artwork-heading"><div><span class="release">05 / Give the project a home</span><h2 id="intake-title">The details belong together.</h2></div><p>Your artwork, size, scope and check report become one project brief for estimating and review.</p></div>
+  <p id="intake-connection" class="connection-note" role="status">Checking project submission availability…</p>
+  <form id="intake-form"><fieldset><legend>Client & project</legend><div class="intake-fields">
+    <div><label for="client-name">YOUR NAME *</label><input id="client-name" name="name" required maxlength="100" autocomplete="name"></div>
+    <div><label for="client-business">BUSINESS / ORGANIZATION *</label><input id="client-business" name="business" required maxlength="120" autocomplete="organization" placeholder="Or: Personal project"></div>
+    <div><label for="client-email">EMAIL *</label><input id="client-email" name="email" type="email" required maxlength="160" autocomplete="email"></div>
+    <div><label for="client-phone">PHONE (OPTIONAL)</label><input id="client-phone" name="phone" type="tel" maxlength="60" autocomplete="tel"></div>
+    <div class="wide"><label for="project-name">PROJECT NAME *</label><input id="project-name" name="project" required maxlength="140" placeholder="e.g. September concentrate jar labels"></div>
+    <div><label for="project-quantity">TOTAL LABEL QUANTITY *</label><input id="project-quantity" name="quantity" type="number" min="1" max="1000000" step="1" required placeholder="500"></div>
+    <div><label for="project-versions">ARTWORK VERSIONS *</label><input id="project-versions" name="versions" type="number" min="1" max="1000" step="1" required value="1"></div>
+    <div><label for="project-material">MATERIAL PREFERENCE *</label><select id="project-material" name="material" required><option value="">Choose a material</option><option>White label stock</option><option>Clear label stock</option><option>Paper label stock</option><option>Help me choose</option><option>Other — see notes</option></select></div>
+    <div><label for="project-finish">FINISH / SPECIAL EFFECTS</label><input id="project-finish" name="finish" maxlength="120" placeholder="Matte, gloss, white ink, or unsure"></div>
+    <div><label for="project-deadline">REQUESTED IN-HAND DATE</label><input id="project-deadline" name="deadline" type="date"></div>
+    <div><label class="check"><input name="artworkHelp" type="checkbox">I’d like help fixing or preparing the artwork.</label></div>
+    <div class="wide"><label for="project-notes">SCOPE, REQUIREMENTS & DELIVERY NOTES</label><textarea id="project-notes" name="notes" maxlength="3000" rows="4" placeholder="Container, surface, version quantities, shipping or pickup, special requirements…"></textarea></div>
+  </div></fieldset><div class="intake-footer"><div><p id="intake-readiness" class="note">Check an artwork file first to attach its results to your project.</p><p class="note">Pricing follows an internal review of materials, layout, waste, ink, labor and finishing. A submission is a request for review; it does not approve a proof, quote or print run. Contact details are not stored in this browser or included in setup links.</p><label class="check"><input id="intake-consent" type="checkbox">I agree to send these details and this artwork to PRESSWRK for this project.</label></div><div class="intake-actions"><button id="intake-submit" type="submit" class="primary" disabled>Submit project for review ↗</button><button id="intake-download" type="button" class="secondary">Download project brief ↓</button></div></div><p id="intake-status" role="status" aria-live="polite"></p></form>
+</section>

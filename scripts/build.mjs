@@ -1,8 +1,13 @@
 import {readFile,writeFile,mkdir,cp} from 'node:fs/promises';
+import {build} from 'esbuild';
 const read=p=>readFile(p,'utf8');
 const engine=await read('src/engine.js');
 const script=engine+'\n'+await read('src/sharing.js')+'\n'+(await read('src/app.js')).replace('__ENGINE_JSON__',JSON.stringify(engine));
-const html=(await read('src/page.html')).replace('__CSS__',await read('src/styles.css')).replace('__SCRIPT__',script);
-await mkdir('dist',{recursive:true});await cp('public','dist',{recursive:true});
-await writeFile('dist/index.html',html);await writeFile('dist/PRESSWRKS-Template-Builder.html',html);
-console.log('Built hosted and offline versions from one engine.');
+const base=(await read('src/page.html')).replace('__CSS__',await read('src/styles.css')+'\n'+await read('src/preflight/styles.css')).replace('__SCRIPT__',script);
+await mkdir('dist/vendor',{recursive:true});await mkdir('dist/examples',{recursive:true});for(const name of ['cmyk-300.jpg','vector.pdf','low-image.pdf'])await cp('tests/fixtures/'+name,'dist/examples/'+name);await cp('public','dist',{recursive:true});
+await build({entryPoints:['src/preflight/app.mjs'],bundle:true,format:'esm',splitting:true,outdir:'dist/assets',minify:true,target:['es2022'],entryNames:'checker',chunkNames:'[name]-[hash]',legalComments:'linked'});
+await cp('node_modules/pdfjs-dist/build/pdf.worker.min.mjs','dist/vendor/pdf.worker.min.mjs');
+for(const name of ['standard_fonts','cmaps'])await cp('node_modules/pdfjs-dist/'+name,'dist/vendor/'+name,{recursive:true});
+await writeFile('dist/index.html',base.replace('__PREFLIGHT__',await read('src/preflight/panel.html')).replace('__CHECKER_SCRIPT__','<script type="module" src="/assets/checker.js"></script>'));
+await writeFile('dist/PRESSWRKS-Template-Builder.html',base.replace('__PREFLIGHT__','<section id="artwork" class="artwork-section"><h2>Check your artwork online.</h2><p>The template builder works offline. For artwork checks and project briefs, <a href="https://presswrks-template-builder.vercel.app/#artwork">open PRESSWRK online →</a></p></section>').replace('__CHECKER_SCRIPT__',''));
+console.log('Built hosted artwork checker and self-contained offline template builder.');

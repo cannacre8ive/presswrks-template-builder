@@ -1,4 +1,4 @@
-![PRESSWRK. template builder](documentation/assets/desktop.png)
+![PRESSWRK. artwork checker](documentation/assets/artwork-checker.jpg)
 
 # PRESSWRK. — Packaging Template Builder
 
@@ -23,7 +23,7 @@ Adobe Illustrator is required to create `.ait` documents. This public beta has b
 
 ## Quick setup
 
-Node 24 and Python 3 for the optional local server. There are no npm dependencies, API keys or accounts to configure.
+Node 24 and Python 3 for the optional local server. The builder and local artwork checker need no API keys. PDF.js and pdf-lib are bundled locally. The optional Drive intake requires a separately authorized Google Apps Script deployment.
 
 ```sh
 npm ci
@@ -31,11 +31,11 @@ npm run check
 npm run dev
 ```
 
-Open http://127.0.0.1:8872. `npm run build` generates `dist/index.html` and a self-contained offline HTML from the same source. Vercel publishes only `dist/`.
+Open http://127.0.0.1:8872. `npm run build` generates `dist/index.html` and a self-contained offline HTML from the same source. Vercel publishes `dist/` and the `/api/intake` function.
 
 ## Architecture
 
-Plain HTML, CSS and JavaScript. `src/engine.js` owns the geometry and ES3-compatible Illustrator generator; `src/app.js` owns the form; `src/sharing.js` validates URL configurations. A small Node build embeds one engine into the web runtime and downloaded scripts, avoiding duplicate-source drift. No database, telemetry, external fonts or runtime API calls. See [ARCHITECTURE.md](ARCHITECTURE.md).
+Plain HTML, CSS and JavaScript. `src/engine.js` owns the geometry and ES3-compatible Illustrator generator; `src/app.js` owns the form; `src/sharing.js` validates URL configurations. A small Node build embeds one engine into the web runtime and downloaded scripts, avoiding duplicate-source drift. No telemetry or external fonts. The checker reads same-origin PDF assets and an intake-availability endpoint; artwork stays local until explicit submission. See [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Presets
 
@@ -49,8 +49,17 @@ Plain HTML, CSS and JavaScript. `src/engine.js` owns the geometry and ES3-compat
 
 All are editable. Generated documents target CMYK, 300 ppi, ten named layers, CutContour and four additional spot swatches. White and gloss artwork must be supplied; unused swatches do not make plates. Tapered / arc dielines are outside this version.
 
+## Artwork check and client intake
+
+[Open the artwork checker](https://presswrks-template-builder.vercel.app/#artwork). PDF, JPG and PNG are inspected locally against the selected trim and bleed dimensions. Raster checks calculate effective PPI and detect RGB/CMYK encoding. PDF checks inspect trim/bleed boxes and measurable image placements across up to 10 pages; PDF color remains a manual prepress check. No automatic conversion or upscaling.
+
+Download a check report or complete a project brief with contact, scope, quantity, versions, material, finish and deadline. File intake is **not activated** until the private Google connection is authorized and configured. The UI states this clearly and never simulates receipt. Local checks accept 25 MB; the optional submission adapter currently accepts 3 MB.
+
+The prepared adapter saves client/project folders, original artwork, brief and estimating inputs. It adds a separate Website Intake tab to the job-control workbook. It does not append incoming requests to the production-actuals ledger, expose internal rates or approve a print run. [Connection setup](integrations/google-apps-script/SETUP.md).
+
 ## Recent updates
 
+- 2026-09-28: Local artwork preflight, sample files, project briefs and a private Drive intake adapter (activation pending).
 - 2026-09-28: Brand corrected to **PRESSWRK.**; same public link.
 
 - 2026-09-28: Public beta release, stronger PRESSWRK. wordmark with red period, setup-sharing links, local recall, reset, keyboard focus and feedback entry.

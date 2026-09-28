@@ -15,3 +15,7 @@
 - [🔴 Not Started] Team libraries or integrations only after a repeated collaboration need is established.
 
 Guardrails: preserve geometry and source provenance; do not turn provisional sizes into certified dimensions; no account or backend required for the core workflow.
+
+### Intake activation
+
+Prepared: private Google Apps Script, client/project folders, job-control intake queue, estimating inputs linked to the existing cost dashboard. Pending: owner's Google authorization, secret/environment configuration, synthetic production handoff verification. No automated quote is emitted. Next after activation: reviewed SKU/rate mapping for actual cost projections and resumable uploads above 3 MB.

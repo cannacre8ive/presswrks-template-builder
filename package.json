@@ -1,6 +1,6 @@
 {
   "name": "presswrks-template-builder",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -11,5 +11,12 @@
     "test": "node --test tests/*.test.mjs",
     "check": "npm test && npm run build",
     "dev": "npm run build && python3 -m http.server 8872 --bind 127.0.0.1 --directory dist"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "6.3.289"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
   }
 }

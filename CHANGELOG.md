@@ -34,3 +34,9 @@
 
 ### Added
 - Original local browser builder, five provisional presets, custom geometry and Illustrator script output. Source preserved byte-for-byte.
+
+## 1.2.0 — 2026-09-28
+
+- Add local PDF/JPG/PNG artwork checking, effective 300 PPI calculations, size/bleed checks, raster color detection, previews, examples and downloadable reports.
+- Add client/project intake and downloadable estimating context; preserve the PRESSWRK design and template builder.
+- Prepare a private Drive/Sheets adapter with signed requests, file hashes, safe retries and human production holds. Online submission remains visibly disabled pending Google activation.

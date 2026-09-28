@@ -21,3 +21,9 @@ Configuration: name, product index, shape, width/height/bleed/safe/overlap/circu
 Downloaded JSX embeds the same engine used for validation. Native dialog download is the separately preserved existing ScriptUI artifact; Illustrator runtime remains unverified.
 
 Vercel runs `npm ci --ignore-scripts` then `npm run build`, publishes `dist`. Security headers deny framing, remote requests, objects and form submissions. Inline scripts/styles are intentional for the downloadable single HTML. GitHub CI runs `npm ci` and `npm run check`.
+
+## Artwork and intake extension (v1.2)
+
+`src/preflight/core.mjs` inspects raster headers and calculates effective PPI. `pdf.mjs` uses bundled PDF-lib page boxes and PDF.js placement operators/preview. The checker is lazy-loaded as same-origin ES modules. No artwork is sent during checking. The offline download keeps the self-contained template builder and links to the online checker.
+
+`intake.mjs` normalizes a project brief and holds all production approvals. `/api/intake` fails closed when unconfigured. When activated, it validates file signature/hash and input limits, strips client approval claims, signs the payload and forwards it to an owner-authorized Google Apps Script adapter. That adapter creates private client/project folders and a separate Website Intake queue. Existing actual-cost rows and Job Control formulas are never rewritten.
